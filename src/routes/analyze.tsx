@@ -116,7 +116,7 @@ function AnalyzePage() {
       const raw = err instanceof Error ? err.message : "";
       const key = Object.keys(ERROR_MESSAGES).find((k) => raw.includes(k));
       const message = key
-        ? ERROR_MESSAGES[key]
+        ? (ERROR_MESSAGES[key] as string)
         : "AI 분석 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.";
       setError(message);
       toast.error(message);

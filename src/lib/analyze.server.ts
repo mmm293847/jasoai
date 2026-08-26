@@ -53,8 +53,8 @@ function extractJson(text: string): unknown {
 }
 
 function normalize(raw: unknown, fallbackText: string): AnalysisResult {
-  const data = (raw ?? {}) as Record<string, any>;
-  const scoresRaw = (data.scores ?? {}) as Record<string, unknown>;
+  const data = (raw ?? {}) as any;
+  const scoresRaw = (data.scores ?? {}) as any;
   const scores: Scores = {
     writing: clampScore(scoresRaw.writing),
     structure: clampScore(scoresRaw.structure),
@@ -85,7 +85,7 @@ function normalize(raw: unknown, fallbackText: string): AnalysisResult {
         .filter((it) => it.original || it.feedback)
     : [];
 
-  const priority = (data.priority_improvement ?? {}) as Record<string, unknown>;
+  const priority = (data.priority_improvement ?? {}) as any;
 
   return {
     overall_score: clampScore(data.overall_score, avg),
