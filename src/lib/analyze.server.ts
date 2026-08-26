@@ -72,7 +72,7 @@ function normalize(raw: unknown, fallbackText: string): AnalysisResult {
           title: String(it?.title ?? "").trim(),
           description: String(it?.description ?? "").trim(),
         }))
-        .filter((it) => it.title || it.description)
+        .filter((it: { title: string; description: string }) => it.title || it.description)
     : [];
 
   const sentenceFeedback = Array.isArray(data.sentence_feedback)
@@ -82,7 +82,7 @@ function normalize(raw: unknown, fallbackText: string): AnalysisResult {
           feedback: String(it?.feedback ?? "").trim(),
           suggestion: String(it?.suggestion ?? "").trim(),
         }))
-        .filter((it) => it.original || it.feedback)
+        .filter((it: { original: string; feedback: string }) => it.original || it.feedback)
     : [];
 
   const priority = (data.priority_improvement ?? {}) as any;
