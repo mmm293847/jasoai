@@ -160,7 +160,7 @@ function ResultPage() {
       <div className="mx-auto max-w-6xl space-y-6 px-4 py-10 sm:px-6">
         {/* 종합 점수 + 평가 항목 */}
         <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="surface-card flex flex-col items-center p-7 text-center">
+          <div className="surface-card flex flex-col items-center justify-center p-7 text-center">
             <p className="text-sm font-semibold text-muted-foreground">종합 점수</p>
             <div className="mt-4">
               <ScoreRing score={result.overall_score} />
